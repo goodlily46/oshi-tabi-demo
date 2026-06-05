@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>推し旅 | 日本演出现场决策助手</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="phone-app" aria-label="推し旅手机 Web App 原型">
+    <header class="app-header">
+      <div class="status-row">
+        <span>20:24</span>
+        <span>现场攻略 Demo</span>
+      </div>
+      <p class="kicker">OSHI TABI</p>
+      <h1>推し旅</h1>
+      <p class="subtitle">给第一次或低经验海外粉丝的一份日本演出现场行动建议。</p>
+    </header>
+
+    <section class="input-card" aria-label="生成现场攻略">
+      <label>
+        <span>想看的艺人</span>
+        <input id="artistInput" value="YOASOBI" autocomplete="off">
+      </label>
+
+      <div class="field-group">
+        <span class="field-label">目标场馆</span>
+        <div class="venue-tabs" id="venueTabs" role="tablist" aria-label="选择场馆">
+          <button type="button" class="is-active" data-venue="tokyoDome">东京巨蛋</button>
+          <button type="button" data-venue="budokan">武道馆</button>
+          <button type="button" data-venue="makuhari">幕张</button>
+          <button type="button" data-venue="saitama">SSA</button>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <label>
+          <span>预算档位</span>
+          <select id="budgetInput">
+            <option value="low">偏低</option>
+            <option value="mid" selected>中等</option>
+            <option value="high">充足</option>
+          </select>
+        </label>
+        <label>
+          <span>优先级</span>
+          <select id="priorityInput">
+            <option value="save">省钱</option>
+            <option value="stable" selected>稳妥</option>
+            <option value="experience">体验优先</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="toggle-row">
+        <span>第一次去日本演出</span>
+        <input id="firstTimeInput" type="checkbox" checked>
+      </label>
+
+      <button class="primary-action" id="generateButton" type="button">生成现场攻略</button>
+    </section>
+
+    <section class="result-stack" aria-label="现场攻略结果">
+      <article class="card recommendation-card">
+        <div class="card-topline">
+          <span>综合建议</span>
+          <strong id="verdictBadge">考虑替代方案</strong>
+        </div>
+        <h2 id="verdictTitle">先确认票务和散场交通，再决定是否冲场</h2>
+        <div class="decision-meta">
+          <div>
+            <span>预算压力</span>
+            <strong id="budgetPressure">中</strong>
+          </div>
+          <div>
+            <span>交通风险</span>
+            <strong id="trafficRisk">高</strong>
+          </div>
+          <div>
+            <span>新手友好</span>
+            <strong id="beginnerScore">72</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="card venue-card">
+        <div class="card-topline">
+          <span>场馆实战指南</span>
+          <strong id="venueRisk">散场拥堵高</strong>
+        </div>
+        <h2 id="venueName">东京巨蛋</h2>
+        <div class="guide-list">
+          <div>
+            <span>建议到场</span>
+            <p id="arrivalText">开演前 2.5 小时</p>
+          </div>
+          <div>
+            <span>最近车站/出口</span>
+            <p id="stationText">水道桥 / 后乐园</p>
+          </div>
+          <div>
+            <span>入口/排队</span>
+            <p id="queueText"></p>
+          </div>
+          <div>
+            <span>末班车参考</span>
+            <p id="lastTrainText"></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card culture-card">
+        <div class="card-topline">
+          <span>文化须知</span>
+          <strong>第一次必看</strong>
+        </div>
+        <ul id="cultureList"></ul>
+        <p class="notice">规则、入口和末班车以主办方公告及当日交通信息为准；本 Demo 只做决策辅助。</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

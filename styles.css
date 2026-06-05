@@ -1,0 +1,347 @@
+:root {
+  color-scheme: dark;
+  --bg: #160f0c;
+  --screen: #211713;
+  --card: rgba(47, 34, 27, 0.92);
+  --card-soft: rgba(255, 255, 255, 0.045);
+  --ink: #f7ead4;
+  --muted: #b8a488;
+  --line: rgba(247, 234, 212, 0.16);
+  --gold: #d9ae66;
+  --gold-soft: rgba(217, 174, 102, 0.15);
+  --warning: #bd6245;
+  --safe: #87936d;
+  --shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+  --font-ui: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+  --font-jp: "Yu Mincho", "Hiragino Mincho ProN", "Songti SC", SimSun, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(217, 174, 102, 0.18), transparent 34%),
+    linear-gradient(160deg, #2a1c16, var(--bg) 56%, #0f0a08);
+  color: var(--ink);
+  font-family: var(--font-ui);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.phone-app {
+  width: min(430px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 14px 14px 28px;
+  background:
+    linear-gradient(180deg, rgba(72, 49, 37, 0.45), transparent 240px),
+    var(--screen);
+  box-shadow: var(--shadow);
+}
+
+.app-header {
+  padding: 8px 4px 18px;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 26px;
+  color: rgba(247, 234, 212, 0.58);
+  font-size: 12px;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-family: var(--font-jp);
+  font-size: 58px;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.subtitle {
+  width: min(100%, 330px);
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.input-card,
+.card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.input-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+label,
+.field-group {
+  display: grid;
+  gap: 8px;
+}
+
+label span,
+.field-label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(10, 7, 6, 0.58);
+  color: var(--ink);
+  padding: 0 12px;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--gold);
+}
+
+.venue-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.venue-tabs button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.venue-tabs button.is-active {
+  border-color: rgba(217, 174, 102, 0.65);
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.toggle-row {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.toggle-row input {
+  width: 22px;
+  min-height: 22px;
+  accent-color: var(--gold);
+}
+
+.primary-action {
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--gold), #f1c982);
+  color: #20120c;
+  font-weight: 900;
+}
+
+.result-stack {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.card {
+  padding: 16px;
+}
+
+.recommendation-card {
+  background:
+    linear-gradient(145deg, rgba(91, 58, 42, 0.9), rgba(42, 29, 23, 0.95)),
+    var(--card);
+}
+
+.card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-topline span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.card-topline strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  color: var(--gold);
+  font-size: 12px;
+}
+
+.recommendation-card h2,
+.venue-card h2 {
+  margin-bottom: 10px;
+  font-size: 23px;
+  line-height: 1.28;
+}
+
+.decision-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.decision-meta div {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card-soft);
+}
+
+.decision-meta span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.decision-meta strong {
+  color: var(--ink);
+  font-size: 20px;
+}
+
+.guide-list {
+  display: grid;
+  gap: 10px;
+}
+
+.guide-list div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card-soft);
+}
+
+.guide-list span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.guide-list p {
+  margin-bottom: 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.culture-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.culture-card li {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card-soft);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.culture-card li strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ink);
+}
+
+.notice {
+  margin: 12px 0 0;
+  color: rgba(247, 234, 212, 0.48);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (min-width: 720px) {
+  body {
+    padding: 24px 0;
+  }
+
+  .phone-app {
+    min-height: calc(100vh - 48px);
+    border: 1px solid rgba(247, 234, 212, 0.1);
+    border-radius: 26px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 370px) {
+  .phone-app {
+    padding: 10px;
+  }
+
+  .venue-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid,
+  .decision-meta {
+    grid-template-columns: 1fr;
+  }
+}
